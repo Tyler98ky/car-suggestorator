@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
-import "./WeatherCard.css";
 import "./CarCard.css";
-import Loader from "./Loader";
+import Loader from "../Loader";
 
 // Translate temperature from Kelvin to Celsius or Fahrenheit.
 const tempTranslator = (temp, unit) => {
@@ -159,13 +158,40 @@ WeatherCard.propTypes = {
   setUnits: PropTypes.func,
 };
 
-const CarCard = () => {
+const CarCard = ({ data }) => {
   return (
     <article className="carcard">
-      <h1>This is a car</h1>
-      <p>Car details</p>
+      <h1>Car Recommendation</h1>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <p>
+        This is a short description of why the Daewoo 6500 is such a dope car
+        for you
+      </p>
     </article>
   );
+};
+
+// default props
+CarCard.defaultProps = {
+  data: {
+    manufacturer: "Daewoo",
+    model: "Civic Type R",
+    trim: "",
+    monthlyprice: "",
+    mpg: "",
+  },
+  currency: "USD",
+  setUnits: () => {},
+};
+
+CarCard.propTypes = {
+  data: PropTypes.shape({
+    manufacturer: PropTypes.string,
+    model: PropTypes.string,
+    trim: PropTypes.string,
+    monthlyprice: PropTypes.string,
+    mpg: PropTypes.string,
+  }),
 };
 
 export default CarCard;

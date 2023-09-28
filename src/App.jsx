@@ -1,34 +1,33 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import useApiRequests from "./components/useApiRequests";
-import WeatherForm from "./components/WeatherForm";
-import WeatherCard from "./components/WeatherCard";
 import Description from "./components/Description";
 import CarCard from "./components/CarCard";
+import CarForm from "./components/CarForm";
 
 function App() {
   const [prompt, setPrompt] = useState("");
-  const [units, setUnits] = useState("metric");
-  const [weatherDataLoading, setWeatherDataLoading] = useState(false);
+  // const [units, setUnits] = useState("metric");
+  // const [weatherDataLoading, setWeatherDataLoading] = useState(false);
   const [weatherDescriptLoading, setWeatherDescriptLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
   // Custom hook to handle API requests. Fires when prompt changes.
-  const { error, promptData, locationData, weatherData, weatherDescription } =
+  const { error, promptData, weatherData, weatherDescription } =
     useApiRequests(prompt);
 
   // Set error message if error is returned from API request.
   useEffect(() => {
     if (error) {
       setErrorMsg(error);
-      setWeatherDataLoading(false);
+      // setWeatherDataLoading(false);
     }
   }, [error]);
 
   // Set weatherDataLoading to false when weatherData is returned from API request.
   useEffect(() => {
     if (weatherData) {
-      setWeatherDataLoading(false);
+      // setWeatherDataLoading(false);
     }
   }, [weatherData]);
 
@@ -40,14 +39,14 @@ function App() {
 
   useEffect(() => {
     if (promptData && promptData.units) {
-      setUnits(promptData.units);
+      // setUnits(promptData.units);
     }
   }, [promptData]);
 
   // Handle form submission. Set prompt to user input.
   const handleSubmit = (newPrompt) => {
     setErrorMsg("");
-    setWeatherDataLoading(true);
+    // setWeatherDataLoading(true);
     setWeatherDescriptLoading(true);
     setPrompt(newPrompt);
   };
@@ -55,8 +54,9 @@ function App() {
   return (
     <div className="container">
       <header className="header">
-        <h1 className="page-title">Current Weather</h1>
-        <WeatherForm onSubmit={handleSubmit} />
+        <h1 className="page-title">Tell me what you want from your next car</h1>
+        {/* <WeatherForm onSubmit={handleSubmit} /> */}
+        <CarForm onSubmit={handleSubmit} />
         {error && <p className="error">{errorMsg.message}</p>}
         {weatherDescription ? (
           <Description

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import "./Description.css";
-import Loader from "./Loader";
+import Loader from "../Loader";
 
 const Description = ({ isLoading, weatherDescription }) => {
   return (
@@ -18,6 +18,7 @@ Description.defaultProps = {
 };
 
 Description.propTypes = {
+  isLoading: PropTypes.bool,
   weatherDescription: PropTypes.string,
 };
 
