@@ -49,3 +49,14 @@
   font-size: 0.8rem;
   margin-top: 10px;
 }
+
+#carEntry {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  margin-block: 0.5rem 1rem;
+  font-size: 1.2rem;
+  height: 200px;
+  width: 100%;
+}

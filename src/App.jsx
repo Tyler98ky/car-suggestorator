@@ -54,7 +54,7 @@ function App() {
   return (
     <div className="container">
       <header className="header">
-        <h1 className="page-title">Tell me what you want from your next car</h1>
+        <h1 className="page-title">Car Suggest-o-rator</h1>
         {/* <WeatherForm onSubmit={handleSubmit} /> */}
         <CarForm onSubmit={handleSubmit} />
         {error && <p className="error">{errorMsg.message}</p>}
