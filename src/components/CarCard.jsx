@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import "./WeatherCard.css";
+import "./CarCard.css";
 import Loader from "./Loader";
 
 // Translate temperature from Kelvin to Celsius or Fahrenheit.
