@@ -4,6 +4,7 @@ import useApiRequests from "./components/useApiRequests";
 import WeatherForm from "./components/WeatherForm";
 import WeatherCard from "./components/WeatherCard";
 import Description from "./components/Description";
+import CarCard from "./components/CarCard";
 
 function App() {
   const [prompt, setPrompt] = useState("");
@@ -67,7 +68,7 @@ function App() {
         )}
       </header>
       <main className="main-content">
-        {weatherData.name && !errorMsg ? (
+        {/* {weatherData.name && !errorMsg ? (
           <WeatherCard
             isLoading={weatherDataLoading}
             data={weatherData}
@@ -78,7 +79,9 @@ function App() {
           />
         ) : (
           <WeatherCard isLoading={weatherDataLoading} setUnits={setUnits} />
-        )}
+        )} */}
+
+        <CarCard />
       </main>
     </div>
   );
