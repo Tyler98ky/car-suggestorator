@@ -5,6 +5,7 @@ import PromptToCar from "./PromptToCar";
 const useApiRequests = (prompt) => {
   const [error, setError] = useState(null);
   const [promptData, setPromptData] = useState({});
+  const [carData, setCarData] = useState({});
 
   /**
    * Current flow should go as follows
@@ -26,6 +27,8 @@ const useApiRequests = (prompt) => {
       try {
         const promptDataRes = await PromptToCar(prompt);
         setPromptData(promptDataRes);
+
+        setCarData(JSON.stringify(promptDataRes, null, 4));
       } catch (error) {
         setError(error);
         console.error("Error:", error);
@@ -35,7 +38,7 @@ const useApiRequests = (prompt) => {
     fetchData();
   }, [prompt]); // run effect when `prompt` is submitted and changed
 
-  return { error, promptData };
+  return { error, promptData, carData };
 };
 
 useApiRequests.propTypes = {
