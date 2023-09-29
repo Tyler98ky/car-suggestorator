@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const PromptToLocation = (prompt) => {
+const PromptToCar = (prompt) => {
   const url = "https://api.openai.com/v1/chat/completions";
 
   // const exampleContent = `I would like a small, fun to drive car, that will cost less than $1000 a month. I don't like SUV's or trucks, and I would love a manual transmission, if it were available. I really do not want a Honda though.`;
@@ -75,8 +75,8 @@ const PromptToLocation = (prompt) => {
     });
 };
 
-PromptToLocation.propTypes = {
+PromptToCar.propTypes = {
   prompt: PropTypes.string.isRequired,
 };
 
-export default PromptToLocation;
+export default PromptToCar;
