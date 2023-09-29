@@ -25,27 +25,16 @@ const PromptToLocation = (prompt) => {
               type: "string",
               description: "Specific car model",
             },
-            monthlyprice: {
-              type: "string",
-              description:
-                "Median monthly payment for someone to own this car in the USA",
-            },
             mpg: {
               type: "string",
               description: "Miles per gallon",
             },
-            costtoownfive: {
+            purchaseCost: {
               type: "string",
-              description: "Median cost to own this car for 5 years",
+              description: "Median sale price",
             },
           },
-          required: [
-            "manufacturer",
-            "model",
-            "monthlyprice",
-            "mpg",
-            "costtoown",
-          ],
+          required: ["manufacturer", "model", "mpg", "purchaseCost"],
         },
       },
     ],
@@ -72,9 +61,8 @@ const PromptToLocation = (prompt) => {
       const promptData = {
         manufacturer: promptRes.manufacturer,
         model: promptRes.model,
-        monthlyprice: promptRes.monthlyprice,
         mpg: promptRes.mpg,
-        costtoownfive: promptRes.costtoownfive,
+        purchaseCost: promptRes.purchaseCost,
       };
 
       return promptData;

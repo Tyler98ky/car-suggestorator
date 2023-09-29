@@ -22,7 +22,7 @@ function App() {
 
   // Set carDataLoading to false when weatherData is returned from API request.
   useEffect(() => {
-    if (carData) {
+    if (carData != null) {
       setCarDataLoading(false);
     }
   }, [carData]);
@@ -44,7 +44,7 @@ function App() {
     <div className="container">
       <header className="header">
         <h1 className="page-title">Car Suggest-o-rator</h1>
-        <h6>Ya know...like suggestion generator? Get it?</h6>
+        <h6>Ya know...like &quot;suggestion generator&quot;? Get it?</h6>
         <CarForm onSubmit={handleSubmit} />
         {error && <p className="error">{errorMsg.message}</p>}
       </header>

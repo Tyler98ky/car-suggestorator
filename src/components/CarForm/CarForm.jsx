@@ -13,7 +13,9 @@ function CarForm({ onSubmit }) {
   return (
     <form className="locationform" onSubmit={handleSubmit}>
       <div className="locationform__elements">
-        <label htmlFor="location">Tell me what you want from your car:</label>
+        <label htmlFor="location">
+          Tell me what you want from your next car:
+        </label>
         <textarea
           id="carEntry"
           name="carEntry"
