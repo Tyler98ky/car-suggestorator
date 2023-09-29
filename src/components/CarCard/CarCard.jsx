@@ -163,10 +163,6 @@ const CarCard = ({ data }) => {
     <article className="carcard">
       <h1>Car Recommendation</h1>
       <pre>{JSON.stringify(data, null, 2)}</pre>
-      <p>
-        This is a short description of why the Daewoo 6500 is such a dope car
-        for you
-      </p>
     </article>
   );
 };
@@ -188,7 +184,6 @@ CarCard.propTypes = {
   data: PropTypes.shape({
     manufacturer: PropTypes.string,
     model: PropTypes.string,
-    trim: PropTypes.string,
     monthlyprice: PropTypes.string,
     mpg: PropTypes.string,
   }),

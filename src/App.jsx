@@ -49,7 +49,7 @@ function App() {
         {error && <p className="error">{errorMsg.message}</p>}
       </header>
       <main className="main-content">
-        {carData && Object.keys(carData).length !== 0 ? (
+        {carData ? (
           <CarCard isLoading={carDataLoading} data={carData} />
         ) : (
           <CarCard isLoading={carDataLoading} />

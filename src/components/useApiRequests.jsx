@@ -19,7 +19,7 @@ const useApiRequests = (prompt) => {
    * that prompt that tells me why the ai chose that car, and how it fits your needs.
    */
 
-  // Fetch location and weather data from API.
+  // Fetch car suggestion from API.
   useEffect(() => {
     const fetchData = async () => {
       if (!prompt) return; // return if prompt is null or undefined
@@ -28,7 +28,7 @@ const useApiRequests = (prompt) => {
         const promptDataRes = await PromptToCar(prompt);
         setPromptData(promptDataRes);
 
-        setCarData(JSON.stringify(promptDataRes, null, 4));
+        setCarData(promptDataRes);
       } catch (error) {
         setError(error);
         console.error("Error:", error);
