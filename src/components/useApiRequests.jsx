@@ -1,16 +1,22 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import LocationToCoordinates from "./LocationToCoordinates";
-import WeatherData from "./WeatherData";
-import PromptToLocation from "./PromptToLocation";
-import WeatherDescript from "./WeahterDescript";
+import PromptToCar from "./PromptToCar";
 
 const useApiRequests = (prompt) => {
   const [error, setError] = useState(null);
   const [promptData, setPromptData] = useState({});
-  const [locationData, setLocationData] = useState([]);
-  const [weatherData, setWeatherData] = useState({});
-  const [weatherDescription, setWeatherDescription] = useState(null);
+
+  /**
+   * Current flow should go as follows
+   * 1. Enter a description of what you want
+   * 2. Capture that prompt input and send to openai
+   * 3. openai returns a single object representing a car, like whats in my default values
+   */
+
+  /**
+   * Ideally,later, I want to implement a second openai request that from
+   * that prompt that tells me why the ai chose that car, and how it fits your needs.
+   */
 
   // Fetch location and weather data from API.
   useEffect(() => {
@@ -18,22 +24,8 @@ const useApiRequests = (prompt) => {
       if (!prompt) return; // return if prompt is null or undefined
 
       try {
-        const promptDataRes = await PromptToLocation(prompt);
+        const promptDataRes = await PromptToCar(prompt);
         setPromptData(promptDataRes);
-
-        const locationDataRes = await LocationToCoordinates(
-          promptDataRes.locationString
-        );
-        setLocationData(locationDataRes);
-
-        const weatherDataRes = await WeatherData(locationDataRes);
-        setWeatherData(weatherDataRes);
-
-        const weatherDescriptRes = await WeatherDescript(
-          prompt,
-          weatherDataRes
-        );
-        setWeatherDescription(weatherDescriptRes);
       } catch (error) {
         setError(error);
         console.error("Error:", error);
@@ -41,9 +33,9 @@ const useApiRequests = (prompt) => {
     };
 
     fetchData();
-  }, [prompt]); // run effect when `prompt` changes
+  }, [prompt]); // run effect when `prompt` is submitted and changed
 
-  return { error, promptData, locationData, weatherData, weatherDescription };
+  return { error, promptData };
 };
 
 useApiRequests.propTypes = {
