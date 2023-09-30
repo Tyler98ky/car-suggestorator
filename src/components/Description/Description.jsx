@@ -2,24 +2,24 @@ import PropTypes from "prop-types";
 import "./Description.css";
 import Loader from "../Loader";
 
-const Description = ({ isLoading, weatherDescription }) => {
+const Description = ({ isLoading, carDescription }) => {
   return (
     <div className="description">
       <h2 className="description__title">Description</h2>
       <div className="description__divider">
         {isLoading && <Loader />}
-        <p className="description__text">{weatherDescription}</p>
+        <p className="description__text">{carDescription}</p>
       </div>
     </div>
   );
 };
 Description.defaultProps = {
-  weatherDescription: "Waiting for location data.",
+  carDescription: "Waiting for car data.",
 };
 
 Description.propTypes = {
   isLoading: PropTypes.bool,
-  weatherDescription: PropTypes.string,
+  carDescription: PropTypes.string,
 };
 
 export default Description;

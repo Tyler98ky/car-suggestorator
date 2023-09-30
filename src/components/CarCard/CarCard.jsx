@@ -8,7 +8,12 @@ const CarCard = ({ isLoading, data }) => {
       {isLoading && <Loader />}
       <div className="carcard__data">
         <h1>Car Recommendation</h1>
-        <pre>{JSON.stringify(data, null, 2)}</pre>
+        <article>
+          <h2>
+            {data.manufacturer} {data.model}
+          </h2>
+          <h2 className="carcard__price">MSRP: {data.purchaseCost}</h2>
+        </article>
       </div>
     </article>
   );
@@ -17,11 +22,11 @@ const CarCard = ({ isLoading, data }) => {
 // default props
 CarCard.defaultProps = {
   data: {
-    manufacturer: "Honda",
-    model: "Civic Type R",
+    manufacturer: "Make",
+    model: "Model",
     trim: "",
     mpg: "",
-    purchaseCost: "$10,000",
+    purchaseCost: "in $USD",
   },
   currency: "USD",
   setUnits: () => {},
