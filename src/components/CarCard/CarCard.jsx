@@ -12,11 +12,13 @@ const CarCard = ({ isLoading, data, carImageUrl }) => {
           <h2>
             {data.manufacturer} {data.model}
           </h2>
-          <img
-            src={carImageUrl}
-            alt={`Picture of 2022 ${data.manufacturer} ${data.model}`}
-            height="200px"
-          />
+          <video
+            src="src/assets/car-stock.mp4"
+            autoPlay={true}
+            muted
+            playsInline
+            loop
+          ></video>
           <h2 className="carcard__price">MSRP: {data.purchaseCost}</h2>
         </article>
       </div>
@@ -27,8 +29,6 @@ const CarCard = ({ isLoading, data, carImageUrl }) => {
 // default props
 CarCard.defaultProps = {
   data: {
-    manufacturer: "Make",
-    model: "Model",
     trim: "",
     mpg: "",
     purchaseCost: "in $USD",
