@@ -1,24 +1,23 @@
 import PropTypes from "prop-types";
 import "./CarCard.css";
 import Loader from "../Loader";
+import { ParticlesContainer } from "../ParticlesContainer/ParticlesContainer";
 
 const CarCard = ({ isLoading, data, carImageUrl }) => {
   return (
     <article className="carcard">
       {isLoading && <Loader />}
+      <ParticlesContainer />
       <div className="carcard__data">
         <h1>Car Recommendation</h1>
         <article>
           <h2>
             {data.manufacturer} {data.model}
           </h2>
-          <video
-            src="src/assets/car-stock.mp4"
-            autoPlay={true}
-            muted
-            playsInline
-            loop
-          ></video>
+          <img
+            src={carImageUrl}
+            alt={`Picture of 2022 ${data.manufacturer} ${data.model}`}
+          />
           <h2 className="carcard__price">MSRP: {data.purchaseCost}</h2>
         </article>
       </div>

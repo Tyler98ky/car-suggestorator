@@ -5,6 +5,7 @@
   padding: 1rem;
   border: 3px solid currentColor;
   border-radius: 1rem;
+  background-color: rgba(0, 2, 23, 0.867);
 }
 
 .carcard__data {
@@ -17,6 +18,11 @@
 }
 
 .carcard video {
+  border-radius: 10px;
+  width: 100%;
+}
+
+.carcard img {
   border-radius: 10px;
   width: 100%;
 }
