@@ -12,7 +12,8 @@ function App() {
   const [errorMsg, setErrorMsg] = useState("");
 
   // Custom hook to handle API requests. Fires when prompt changes.
-  const { error, carData, carDescription } = useApiRequests(prompt);
+  const { error, carData, carDescription, carImageUrl } =
+    useApiRequests(prompt);
 
   // Set error message if error is returned from API request.
   useEffect(() => {
@@ -62,7 +63,11 @@ function App() {
       </header>
       <main className="main-content">
         {carData && !errorMsg ? (
-          <CarCard isLoading={carDataLoading} data={carData} />
+          <CarCard
+            isLoading={carDataLoading}
+            data={carData}
+            carImageUrl={carImageUrl}
+          />
         ) : (
           <CarCard isLoading={carDataLoading} />
         )}

@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import "./CarCard.css";
 import Loader from "../Loader";
 
-const CarCard = ({ isLoading, data }) => {
+const CarCard = ({ isLoading, data, carImageUrl }) => {
   return (
     <article className="carcard">
       {isLoading && <Loader />}
@@ -12,6 +12,11 @@ const CarCard = ({ isLoading, data }) => {
           <h2>
             {data.manufacturer} {data.model}
           </h2>
+          <img
+            src={carImageUrl}
+            alt={`Picture of 2022 ${data.manufacturer} ${data.model}`}
+            height="200px"
+          />
           <h2 className="carcard__price">MSRP: {data.purchaseCost}</h2>
         </article>
       </div>
@@ -28,8 +33,7 @@ CarCard.defaultProps = {
     mpg: "",
     purchaseCost: "in $USD",
   },
-  currency: "USD",
-  setUnits: () => {},
+  carImageUrl: "src/assets/react.svg",
 };
 
 CarCard.propTypes = {
@@ -40,6 +44,7 @@ CarCard.propTypes = {
     mpg: PropTypes.string,
     purchaseCost: PropTypes.string,
   }),
+  carImageUrl: PropTypes.string,
 };
 
 export default CarCard;
