@@ -1,5 +1,5 @@
 .carcard {
-  display: grid;
+  display: flow-root;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr;
   padding: 1rem;
@@ -14,4 +14,20 @@
 
 .carcard__price {
   text-align: right;
+}
+
+
+@media screen and (max-width: 450px) {
+  .carcard h1 {
+    font-size: 2.3rem;
+  }
+
+  .carcard h2,
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  #root {
+    margin: 1rem;
+  }
 }
