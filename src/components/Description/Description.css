@@ -11,4 +11,7 @@
   grid-row: 1/-1;
   grid-column: 1/-1;
   font-size: 1.3rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }

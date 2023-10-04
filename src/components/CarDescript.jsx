@@ -8,7 +8,7 @@ const CarDescript = (prompt, carData) => {
 - Provide 1 sentence of an opinion about why this car fits the prompt's needs.
 - Provide 1 sentence of an opinion about why this car fits the prompt's needs.
 - Provide 1 sentence of an opinion about why this car fits the prompt's needs. 
-- Give 1 to 2 sentences of a breakdown of the expected monthly cost of ownership for this car. Try to provide number estimates.`;
+- Provide 1 sentence of a breakdown of the expected monthly cost of ownership for this car. Try to provide number estimates.`;
 
   const newPrompt = `Question: ${prompt}. Car Data: ${JSON.stringify(carData)}`;
 

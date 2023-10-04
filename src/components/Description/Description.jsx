@@ -8,7 +8,9 @@ const Description = ({ isLoading, carDescription }) => {
       <h2 className="description__title">Description</h2>
       <div className="description__divider">
         {isLoading && <Loader />}
-        <p className="description__text">{carDescription}</p>
+        <pre className="description__text">
+          {carDescription.replaceAll("\n", "\n\n")}
+        </pre>
       </div>
     </div>
   );
