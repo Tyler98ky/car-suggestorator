@@ -1,11 +1,12 @@
 .carcard {
-  display: flow-root;
+  display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr;
   padding: 1rem;
   border: 3px solid currentColor;
   border-radius: 1rem;
   background-color: rgba(0, 2, 23, 0.867);
+  overflow-x: scroll;
 }
 
 .carcard__data {
