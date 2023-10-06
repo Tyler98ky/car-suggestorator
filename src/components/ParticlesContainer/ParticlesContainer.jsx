@@ -1,4 +1,4 @@
-import Particles from "react-particles";
+import Particles from "react-tsparticles";
 import React from "react";
 import { loadStarsPreset } from "tsparticles-preset-stars";
 
