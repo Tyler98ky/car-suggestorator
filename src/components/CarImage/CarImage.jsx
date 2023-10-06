@@ -12,7 +12,7 @@ const CarImage = ({ url, data }) => {
 
 // default props
 CarImage.defaultProps = {
-  url: "../../assets/react.svg",
+  url: "/react.svg",
   data: {
     manufacturer: "Make",
     model: "Model",
