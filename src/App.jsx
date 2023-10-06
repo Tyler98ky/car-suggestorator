@@ -48,7 +48,7 @@ function App() {
   return (
     <div className="container">
       <header className="header">
-        <h1 className="page-title">Car Suggest-o-rator</h1>
+        <h1 className="page-title">Car Suggest-O-Rator</h1>
         {/* <h6>Ya know...like &quot;suggestion generator&quot;? Get it?</h6> */}
         <CarForm onSubmit={handleSubmit} />
         {error && <p className="error">{errorMsg}</p>}
