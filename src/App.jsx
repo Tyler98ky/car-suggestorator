@@ -24,7 +24,7 @@ function App() {
     }
   }, [error]);
 
-  // Set carDataLoading to false when weatherData is returned from API request.
+  // Set carDataLoading to false when carData is returned from API request.
   useEffect(() => {
     if (carData) {
       setCarDataLoading(false);
