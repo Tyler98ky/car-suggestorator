@@ -4,7 +4,7 @@ import "https://apis.google.com/js/api.js";
 const CarToImage = (gapiClient, carData) => {
   return gapiClient.search.cse
     .list({
-      cx: "f2e4cd092afa64ff8",
+      cx: `${import.meta.env.VITE_GOOG_ENGINE}`,
       fileType: ".png",
       num: 1,
       q: `2022-${carData.manufacturer}-${carData.model}`,

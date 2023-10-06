@@ -5,9 +5,8 @@ import CarDescript from "./CarDescript";
 import CarToImage from "./CarToImage";
 import "https://apis.google.com/js/api.js";
 
-
 function loadClient() {
-  gapi.client.setApiKey("AIzaSyCVmQGx7TZ1WFdkhwE9JHJJKsdHG67OhDM");
+  gapi.client.setApiKey(`${import.meta.env.VITE_GOOG_SEARCH}`);
   return gapi.client
     .load(
       "https://content.googleapis.com/discovery/v1/apis/customsearch/v1/rest"
@@ -23,21 +22,21 @@ function loadClient() {
 }
 
 const useApiRequests = (prompt) => {
-    gapi.load("client", {
-      callback: function () {
-        // Handle gapi.client initialization.
-        return loadClient();
-      },
-      onerror: function () {
-        // Handle loading error.
-        alert("gapi.client failed to load!");
-      },
-      timeout: 5000, // 5 seconds.
-      ontimeout: function () {
-        // Handle timeout.
-        alert("gapi.client could not load in a timely manner!");
-      },
-    })
+  gapi.load("client", {
+    callback: function () {
+      // Handle gapi.client initialization.
+      return loadClient();
+    },
+    onerror: function () {
+      // Handle loading error.
+      alert("gapi.client failed to load!");
+    },
+    timeout: 5000, // 5 seconds.
+    ontimeout: function () {
+      // Handle timeout.
+      alert("gapi.client could not load in a timely manner!");
+    },
+  });
 
   const [error, setError] = useState(null);
   const [carData, setCarData] = useState(null);
