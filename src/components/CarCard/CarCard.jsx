@@ -32,7 +32,7 @@ CarCard.defaultProps = {
     mpg: "",
     purchaseCost: "in $USD",
   },
-  carImageUrl: "src/assets/react.svg",
+  carImageUrl: "/react.svg",
 };
 
 CarCard.propTypes = {
