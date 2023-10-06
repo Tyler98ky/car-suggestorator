@@ -1,18 +1,16 @@
 import PropTypes from "prop-types";
 
-const CarDescript = (prompt, weatherData) => {
+const CarDescript = (prompt, carData) => {
   const url = "https://api.openai.com/v1/chat/completions";
 
-  const sysMsg = `In a conversational professional tone, answer the [Question] based on the [Weather Data]. 
+  const sysMsg = `In a conversational professional tone, answer the [Question] based on the [Car]. Return 4 bullet points answering the following concerns. 
 
-- Provide an opinion about what the weather feels like. 
-- Provide temperature in either Celsius or Fahrenheit, whichever is more appropriate. 
-- Never display the temperature in Kelvin. 
-- Provide a recommendation on how to prepare and what to wear (e.g. bring an umbrella, wear a wind breaker, a warm jacket, etc.)`;
+- Provide 1 sentence of an opinion about why this car fits the prompt's needs.
+- Provide 1 sentence of an opinion about why this car fits the prompt's needs.
+- Provide 1 sentence of an opinion about why this car fits the prompt's needs. 
+- Provide 1 sentence of a breakdown of the expected monthly cost of ownership for this car. Try to provide number estimates.`;
 
-  const newPrompt = `Question: ${prompt}. Weather Data: ${JSON.stringify(
-    weatherData
-  )}`;
+  const newPrompt = `Question: ${prompt}. Car Data: ${JSON.stringify(carData)}`;
 
   const data = {
     model: "gpt-4-0613",
@@ -38,7 +36,7 @@ const CarDescript = (prompt, weatherData) => {
     })
     .catch((error) => {
       console.log("Error:", error);
-      return Promise.reject("Unable to fetch weather description.");
+      return Promise.reject("Unable to fetch car description.");
     });
 };
 
